@@ -1,0 +1,24 @@
+{% extends 'passapp/base.html' %}
+
+{% block title %}Password Generator{% endblock  %}
+{% block content %}
+<div class="container">
+    
+    <h1>Password Generator</h1>
+    <form action="{% url 'yourpass' %}">
+        <select name="length" >
+            {% for op in opt%}
+                <option value="{{op}}">{{op}}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <input type="checkbox" name="uppercase"> Uppercase
+        <br>
+        <input type="checkbox" name="numbers"> Numbers
+        <br>
+        <input type="checkbox" name="special"> Special Characters
+        <br><br>
+        <input type="submit" value="Generate Password">
+    </form>
+</div>
+{% endblock  %}
